@@ -1,0 +1,460 @@
+/* Full-screen loader */
+#loader {
+  position: fixed;
+  inset: 0;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 1s ease;
+}
+
+/* Text style */
+.loader-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: white;
+  letter-spacing: 0.3em;
+  animation: glowFade 1.2s ease-in-out infinite alternate;
+}
+
+/* Glow effect */
+@keyframes glowFade {
+  0% { opacity: 0.4; transform: scale(0.95); }
+  100% { opacity: 1; transform: scale(1.05); }
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  background-color: #e0f7ff; /* 🌤️ soft light blue */
+}
+
+
+/* Updated Header Styling */
+.custom-header {
+  background: rgba(17, 17, 17, 0.95);
+  backdrop-filter: blur(6px);
+  color: white;
+  padding: 1rem 2rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 2px;
+  color: #3b82f6;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  font-weight: 900;
+}
+
+.nav-links a:hover {
+  background: #2563eb;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+.section-divider {
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(to right, #3b82f6, transparent);
+  margin: 4rem auto 2rem auto;
+}
+
+#scrollBtn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  z-index: 100;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: none;
+}
+
+#scrollBtn:hover {
+  background-color: #1d4ed8;
+}
+
+.hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 2rem;
+  background: #f4f4f4;
+}
+
+#typing-text {
+  font-size: 1.8rem;  /* You can increase to 2rem or more if needed */
+  font-weight: 600;
+  color: #333;
+  margin-top: 1rem;
+  text-align: left;
+}
+
+@media (min-width: 768px) {
+  #typing-text {
+    font-size: 2.2rem;
+  }
+}
+
+
+.hero-text h2 {
+  font-size: 3rem;
+}
+/* Typing text glow effect */
+#typing-text {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a1a1a;
+  text-shadow: 0 0 10px rgba(0, 0, 255, 0.4), 0 0 20px rgba(0, 0, 255, 0.2);
+  position: relative;
+}
+
+/* Blinking cursor animation */
+#typing-text::after {
+  content: '|';
+  position: absolute;
+  right: -10px;
+  animation: blink 0.8s infinite;
+  color: #1a1a1a;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.hero-img {
+  max-width: 460px;
+  border-radius: 50%;
+}
+
+.section {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+/* About Section Styling */
+#about h2 {
+  font-size: 2.5rem; /* Equivalent to Tailwind's text-4xl */
+  font-weight: 700;
+  text-align: center;
+  color: #222;
+  margin-bottom: 1rem;
+}
+
+#about p {
+  font-size: 1.25rem; /* text-xl */
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 1.7;
+  color: #444;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Only 2 columns */
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+
+.skill-card {
+  background: linear-gradient(135deg, #1c1c1c, #2c2c2c);
+  color: #fff;
+  text-align: center;
+  border-radius: 12px;
+  padding: 2rem 1rem;
+  box-shadow: 0 0 12px rgba(0,0,0,0.5);
+  border: 2px solid #3affb0;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-5px) scale(1.03);
+}
+
+.skill-card img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+.skill-card h3 {
+  margin: 0.5rem 0;
+  font-size: 1.3rem;
+}
+
+.skill-card span {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* Optional: different border colors */
+.react { border-color: #61dafb; }
+.js { border-color: #f7df1e; }
+.html { border-color: #e34c26; }
+.java { border-color: #f89820; }
+.python { border-color: #4B8BBE; }
+.sql { border-color: #e379c3; }
+
+.project-card {
+  background: #e0e0e0;
+  padding: 1rem;
+  margin: 1rem auto;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Resume Section Styling */
+#resume h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+#resume p {
+  font-size: 1.25rem;
+  color: #444;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+/* Resume button styles (refined from earlier) */
+.resume-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #1e3a8a, #2563eb);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.resume-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #1d4ed8, #3b82f6);
+}
+
+/* HackerRank Section Styling */
+#hackerrank h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #1a1a1a;
+  margin-bottom: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+
+.hackerrank-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: linear-gradient(to right, #16a34a, #22c55e);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: transform 0.3s ease, background 0.3s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.hackerrank-button:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #15803d, #4ade80);
+}
+
+/* Socials Section */
+/* Centered row of social icons */
+.social-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+/* Circular social buttons */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1f2937; /* dark navy */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+/* Container holds icon + label vertically */
+.social-icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Row of social wrappers */
+.social-icons-container {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin-top: 1rem;
+}
+
+/* Social icons */
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #1f2937;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.social-icon img {
+  width: 28px;
+  height: 28px;
+}
+
+/* Hover effect */
+.social-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 12px rgba(0,0,0,0.4);
+}
+
+/* Label styling */
+.social-label {
+  font-size: 1rem;
+  color: #333;
+  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+}
+
+
+form {
+  max-width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+input, textarea {
+  padding: 1em;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 1em;
+  background: #111;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+.cta-footer {
+  background: #1f2937;
+  color: #fff;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+.cta-button {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #1d4ed8;
+}
+
+#trail-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.trail-dot {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background: #2563eb; /* Tailwind blue */
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: fadeTrail 0.8s ease-out forwards;
+}
+
+@keyframes fadeTrail {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+
+footer {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+}
